@@ -26,20 +26,24 @@ public class MovieServiceImpl implements MovieService {
 	@Autowired
 	private PriceCategoryRepository priceCategoryRepo;
 
+	@Override
 	public Movie getMovieById(Long id) {
 		return movieRepo.findOne(id);
 	}
 
+	@Override
 	public List<Movie> getAllMovies() {
 		List<Movie> movies = movieRepo.findAll();
 		log.debug("getAllMovies() done");
 		return movies;
 	}
 
+	@Override
 	public List<Movie> getMoviesByTitle(String title) {
 		return movieRepo.findByTitle(title);
 	}
 
+	@Override
 	public Movie saveMovie(Movie movie) {
 		if (movie == null) {
 			throw new RuntimeException("'movie' parameter is not set!");
@@ -49,6 +53,7 @@ public class MovieServiceImpl implements MovieService {
 		return movie;
 	}
 
+	@Override
 	public void deleteMovie(Movie movie) {
 		if (movie == null) {
 			throw new RuntimeException("'movie' parameter is not set!");
@@ -64,6 +69,7 @@ public class MovieServiceImpl implements MovieService {
 		}
 	}
 
+	@Override
 	public List<PriceCategory> getAllPriceCategories() {
 		return priceCategoryRepo.findAll();
 	}

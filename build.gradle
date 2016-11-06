@@ -7,6 +7,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'net.ltgt.apt' version '0.8'
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -30,4 +34,7 @@ dependencies {
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 	
     compile("org.springframework.boot:spring-boot-starter-web")
+    
+    compile("org.mapstruct:mapstruct-jdk8:1.1.0.CR1")
+	apt("org.mapstruct:mapstruct-processor:1.1.0.CR1")
 }
